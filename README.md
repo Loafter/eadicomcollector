@@ -1,0 +1,2 @@
+# eadicomcollector
+Simple EA collector
