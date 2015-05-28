@@ -20,12 +20,12 @@ func checkParam(Ctool string, SrcF string, DstF string) error {
 	}
 	return nil
 }
-func (FolderCompressor) CompressFolder(Ctool string, Prm string, SrcF string, DstF string) error {
+func (FolderCompressor) CompressFolder(Ctool string, PrmC string, PrmT string, SrcF string, DstF string) error {
 	if err := checkParam(Ctool, SrcF, DstF); err != nil {
 		return err
 	}
 
-	if out, err := exec.Command(Ctool, Prm, DstF, SrcF).Output(); err != nil {
+	if out, err := exec.Command(Ctool, PrmC, PrmT, DstF, SrcF).Output(); err != nil {
 		log.Printf("error: %s\n", out)
 		return err
 	} else {
