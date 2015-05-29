@@ -134,7 +134,7 @@
                 .success(function(jsonData) {
                     var inerHtml = ""
                     inerHtml = inerHtml.concat('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button><b>Compress server response</b> ')
-                    inerHtml = inerHtml.concat('<a href="' + 'http://localhost/' + jsonData.Guid + '.zip">' + 'http://localhost/' + jsonData.Guid + '.zip</a>')
+                    inerHtml = inerHtml.concat('<a href="' + 'http://10.78.1.11:9000/' + jsonData.Guid + '.zip">' + 'http://10.78.1.11:9000/' + jsonData.Guid + '.zip</a>')
                     inerHtml = inerHtml.concat(' </div>')
                     $("#well-id")
                         .append(inerHtml)
@@ -162,7 +162,7 @@
                             <div class="form-group">
                                 <label class="control-label">Arhive prefix</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="arprefix-id" value="E:\Archive\ARCH1\LIB_E\Incoming" type="text">
+                                    <input class="form-control input-sm" id="arprefix-id" value="E:\Archives\ARCH1\LIB_E\Incoming" type="text">
                                 </div>
                             </div>
                         </td>
@@ -170,7 +170,7 @@
                             <div class="form-group">
                                 <label class="control-label">Study day</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="day-id" value="01" type="text">
+                                    <input class="form-control input-sm" id="day-id" value="17" type="text">
                                 </div>
                             </div>
                         </td>
@@ -179,7 +179,7 @@
                             <div class="form-group">
                                 <label class="control-label">Study mounth</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="mounth-id" value="04" type="text">
+                                    <input class="form-control input-sm" id="mounth-id" value="05" type="text">
                                 </div>
                             </div>
                         </td>
@@ -188,7 +188,7 @@
                             <div class="form-group">
                                 <label class="control-label">Study Year</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="year-id" value="2001" type="text">
+                                    <input class="form-control input-sm" id="year-id" value="2015" type="text">
                                 </div>
                             </div>
                         </td>
@@ -196,7 +196,7 @@
                             <div class="form-group">
                                 <label class="control-label">Patient id</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="patient-id" value="ID001" type="text">
+                                    <input class="form-control input-sm" id="patient-id" value="20006429" type="text">
                                 </div>
                             </div>
                         </td>
