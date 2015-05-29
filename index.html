@@ -134,7 +134,7 @@
                 .success(function(jsonData) {
                     var inerHtml = ""
                     inerHtml = inerHtml.concat('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button><b>Compress server response</b> ')
-                    inerHtml = inerHtml.concat('<a href="'+'http://localhost/'+jsonData.Guid+'.zip">'+'http://localhost/'+jsonData.Guid+'.zip</a>')
+                    inerHtml = inerHtml.concat('<a href="' + 'http://localhost/' + jsonData.Guid + '.zip">' + 'http://localhost/' + jsonData.Guid + '.zip</a>')
                     inerHtml = inerHtml.concat(' </div>')
                     $("#well-id")
                         .append(inerHtml)
@@ -162,7 +162,7 @@
                             <div class="form-group">
                                 <label class="control-label">Arhive prefix</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="arprefix-id" value="c:\EAARCHIVE" type="text">
+                                    <input class="form-control input-sm" id="arprefix-id" value="E:\Archive\ARCH1\LIB_E\Incoming" type="text">
                                 </div>
                             </div>
                         </td>
@@ -204,7 +204,7 @@
                             <div class="form-group">
                                 <label class="control-label">Output dir</label>
                                 <div class="controls">
-                                    <input class="form-control input-sm" id="outputdir-id" value="C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs" type="text">
+                                    <input class="form-control input-sm" id="outputdir-id" value="E:\DicomWebServerCache" type="text">
                                 </div>
                             </div>
                         </td>
