@@ -65,7 +65,7 @@ func (srv *EaFolderCompressorSrv) Compress(rwr http.ResponseWriter, httpreq *htt
 		return
 	}
 
-	TgF := req.ArchPathPrefix + "\\" + req.Year + "\\" + req.Month + "\\" + req.Day
+	TgF := req.ArchPathPrefix + "\\" + req.Year + "\\" + req.Month + "\\" + req.Day + "\\" + req.Pid
 	NHash := req.Year + req.Month + req.Day + req.Pid
 	ResF := req.OutputDir + "\\" + NHash + ".zip"
 
