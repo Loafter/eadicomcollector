@@ -64,10 +64,12 @@ func (srv *EaFolderCompressorSrv) Compress(rwr http.ResponseWriter, httpreq *htt
 		log.Println(strErr)
 		return
 	}
+
 	TgF := req.ArchPathPrefix + "\\" + req.Year + "\\" + req.Month + "\\" + req.Day
-	NHash := req.ArchPathPrefix + req.Year + req.Month + req.Day + req.Pid
+	NHash := req.Year + req.Month + req.Day + req.Pid
 	ResF := req.OutputDir + "\\" + NHash + ".zip"
 
+	log.Println("info: try compress file ", "7z.exe", "a", "-tzip", TgF, ResF)
 	err = srv.fcom.CompressFolder("7z.exe", "a", "-tzip", TgF, ResF)
 	if err != nil {
 		log.Println(err)

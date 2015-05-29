@@ -29,7 +29,7 @@ func (FolderCompressor) CompressFolder(Ctool string, PrmC string, PrmT string, S
 		log.Printf("error: %s\n", out)
 		return err
 	} else {
-		log.Println(out)
+		log.Printf("success: %s\n", out)
 	}
 	return nil
 }
