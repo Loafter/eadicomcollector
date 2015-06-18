@@ -1,4 +1,4 @@
-package main
+package eadicomcollector
 
 type EaCompRequest struct {
 	ArchPathPrefix string
