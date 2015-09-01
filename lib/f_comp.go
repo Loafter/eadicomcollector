@@ -3,11 +3,22 @@ package eadicomcollector
 import "errors"
 
 import "os/exec"
-import "log"
+import (
+	"log"
+	"os"
+)
 
 type FolderCompressor struct {
 }
 
+func exists(name string) bool {
+	if _, err := os.Stat(name); err != nil {
+		if os.IsNotExist(err) {
+			return false
+		}
+	}
+	return true
+}
 func checkParam(Ctool string, SrcF string, DstF string) error {
 	if len(Ctool) == 0 {
 		return errors.New("error: compress tool don't set")
@@ -21,6 +32,10 @@ func checkParam(Ctool string, SrcF string, DstF string) error {
 	return nil
 }
 func (FolderCompressor) CompressFolder(Ctool string, PrmC string, PrmT string, SrcF string, DstF string) error {
+	if exists(DstF){
+		return nil
+	}
+
 	if err := checkParam(Ctool, SrcF, DstF); err != nil {
 		return err
 	}
