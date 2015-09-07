@@ -33,7 +33,8 @@ func checkParam(Ctool string, SrcF string, DstF string) error {
 }
 func (FolderCompressor) CompressFolder(Ctool string, PrmC string, PrmT string, SrcF string, DstF string) error {
 	if exists(DstF){
-		return nil
+		log.Println("info: archive already refresh")
+		os.Remove(DstF)
 	}
 
 	if err := checkParam(Ctool, SrcF, DstF); err != nil {
