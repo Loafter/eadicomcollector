@@ -44,7 +44,7 @@ func (zc ZipCompressor) CompressFolder(SrcF string, DstF string) error {
 		log.Println("info: archive already refresh")
 		os.Remove(DstF)
 	}
-	if out, err := exec.Command(zc.ctool, zc.prmC, zc.prmT, DstF, SrcF).Output(); err != nil {
+	if out, err := exec.Command(zc.ctool, zc.prmC, zc.prmT,DstF,SrcF ).Output(); err != nil {
 		log.Printf("error: %s\n", out)
 		return err
 	} else {
