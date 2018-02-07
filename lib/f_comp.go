@@ -8,7 +8,10 @@ import (
 	"os"
 )
 
-type FolderCompressor struct {
+type ZipCompressor struct {
+	ctool string
+	prmC  string
+	prmT  string
 }
 
 func exists(name string) bool {
@@ -19,29 +22,29 @@ func exists(name string) bool {
 	}
 	return true
 }
-func checkParam(Ctool string, SrcF string, DstF string) error {
-	if len(Ctool) == 0 {
-		return errors.New("error: compress tool don't set")
-	}
-	if len(SrcF) == 0 {
-		return errors.New("error: target folder don't set")
-	}
-	if len(DstF) == 0 {
-		return errors.New("error: output don't set")
-	}
-	return nil
+func (zc ZipCompressor) checkZTool() bool {
+	_, err := exec.Command(zc.ctool).Output()
+	return err == nil
 }
-func (FolderCompressor) CompressFolder(Ctool string, PrmC string, PrmT string, SrcF string, DstF string) error {
-	if exists(DstF){
+
+
+func CreateCompressor() (zc *ZipCompressor,err error){
+	zc=new(ZipCompressor)
+	zc.ctool="7z.exe"
+	zc.prmC="a"
+	zc.prmT="-tzip"
+	if !zc.checkZTool(){
+		return nil,errors.New("error: cant' create compressor")
+	}
+	return zc,nil
+
+}
+func (zc ZipCompressor) CompressFolder(SrcF string, DstF string) error {
+	if exists(DstF) {
 		log.Println("info: archive already refresh")
 		os.Remove(DstF)
 	}
-
-	if err := checkParam(Ctool, SrcF, DstF); err != nil {
-		return err
-	}
-
-	if out, err := exec.Command(Ctool, PrmC, PrmT, DstF, SrcF).Output(); err != nil {
+	if out, err := exec.Command(zc.ctool, zc.prmC, zc.prmT, DstF, SrcF).Output(); err != nil {
 		log.Printf("error: %s\n", out)
 		return err
 	} else {
